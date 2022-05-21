@@ -1,7 +1,7 @@
 import torch
 
-amino_n_to_a = [c for c in 'ARNDCQEGHILKMFPSTWYVBZXJ*']
-amino_a_to_n = {c: i for i, c in enumerate('ARNDCQEGHILKMFPSTWYVBZXJ*')}
+amino_n_to_a = [c for c in 'ARNDCQEGHILKMFPSTWYVBZXJ*U']
+amino_a_to_n = {c: i for i, c in enumerate('ARNDCQEGHILKMFPSTWYVBZXJ*U')}
 amino_frequencies = torch.tensor([0.074,
                                   0.042,
                                   0.044,
@@ -39,6 +39,7 @@ amino_n_to_v[amino_a_to_n['J'],amino_a_to_n['L']] = 0.5
 
 amino_n_to_v[amino_a_to_n['X']] = amino_frequencies
 amino_n_to_v[amino_a_to_n['*']] = amino_frequencies
+amino_n_to_v[amino_a_to_n['U']] = amino_frequencies
 
 def sequence_to_vector(string):
     x = torch.zeros(len(string), dtype=torch.int64)
