@@ -6,7 +6,7 @@ import alphabet
 def sequence_to_vector(string):
     x = torch.zeros(len(string), dtype=torch.int64)
     for i in range(len(string)):
-        x[i] = alphabet.amino_a_to_n[string[i]]
+        x[i] = amino_a_to_n[string[i]]
     return x
 
 class FASTASequence:
@@ -17,7 +17,7 @@ class FASTASequence:
 
     def convert_to_numeric(self):
         for i in range(len(self.seq)):
-            self.seq[i] = alphabet.amino_a_to_n[self.seq[i]]
+            #self.seq[i] = alphabet.amino_a_to_n[self.seq[i]]
 
     def convert_to_tensor(self):
         seq = torch.zeros(len(self.seq), dtype=torch.int64)
