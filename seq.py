@@ -6,7 +6,7 @@ import torch
 def sequence_to_vector(string):
     x = torch.zeros(len(string), dtype=torch.int64)
     for i in range(len(string)):
-        x[i] = amino_a_to_n[string[i]]
+        x[i] = alphabet.amino_a_to_n[string[i]]
     return x
 
 # class FASTASequence:
