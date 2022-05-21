@@ -2,8 +2,15 @@ import torch
 import alphabet
 
 
-def FASTASequence:
-    def __init__(self, header_str, sequence, sequence_type='string'):
+
+def sequence_to_vector(string):
+    x = torch.zeros(len(string), dtype=torch.int64)
+    for i in range(len(string)):
+        x[i] = alphabet.amino_a_to_n[string[i]]
+    return x
+
+class FASTASequence:
+    def __init__(self, header_str, sequence_str, sequence_type='string'):
         self.header = header_str
         self.seq = sequence_str
         self.seq_type = sequence_type
@@ -20,7 +27,7 @@ def FASTASequence:
 
 
 
-def FASTADataset:
+class FASTADataset:
     def __init__(self):
         self.seqs = []
 
