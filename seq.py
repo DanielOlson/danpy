@@ -40,4 +40,5 @@ class FASTADataset:
             for line in lines:
                 if line[0] == '>':
                     if header.size() > 0:
-                        self.seqs.
+                        x = 0
+                       # self.seqs.
